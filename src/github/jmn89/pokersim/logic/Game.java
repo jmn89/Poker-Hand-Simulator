@@ -1,8 +1,5 @@
 package github.jmn89.pokersim.logic;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
+import java.util.*;
 //@author jmn89
 
 public class Game {
@@ -13,9 +10,9 @@ public class Game {
     private ArrayList<Integer> openSeats;
     private ArrayList<Integer> playerTraversalOrder;
 
-    Game(String[] names) {
+    Game(List<String> names) {
 
-        initialPlayerCount = names.length;
+        initialPlayerCount = names.size();
 
         //randomise button position
         Random rn = new Random();
@@ -37,7 +34,7 @@ public class Game {
         //create Players
         players = new Player[initialPlayerCount];
         for (int i = 0; i < players.length; i++) {
-            players[i] = new Player(names[i], openSeats.get(0));
+            players[i] = new Player(names.get(i), openSeats.get(0));
             openSeats.remove(0);
         }
 
@@ -107,7 +104,7 @@ public class Game {
 
         //print Winners
         Arrays.stream(players)
-                .filter(pl -> pl.getHand().equals(winningHand))
+                .filter(pl -> Arrays.equals(pl.getHand().getValue(), winningHand.getValue()))
                 .forEach(pl -> System.out.println("Winner \t==\t " + pl.getName()));
     }
 

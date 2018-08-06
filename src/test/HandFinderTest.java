@@ -9,8 +9,4 @@ class HandFinderTest {
     void findBestHand() {
         assertEquals(1, 1);
     }
-
-    @Test
-    void findWinningHand() {
-    }
 }

@@ -1,8 +1,7 @@
 package github.jmn89.pokersim.logic;
-//@author jmn89
-
 import java.util.ArrayList;
 import org.apache.commons.math3.util.Combinations;
+//@author jmn89
 
 public class HandFinder {
     

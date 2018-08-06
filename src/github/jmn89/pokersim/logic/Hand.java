@@ -16,7 +16,7 @@ public class Hand
         HAND_COMBINATIONS = combinations;        
     }
 
-    Hand(Card[] cards)
+    public Hand(Card[] cards)
     {
         value = new int[6];
 
@@ -76,7 +76,7 @@ public class Hand
         //flush check
         boolean flush = true;
         for (int x = 0; x < cards.length-1; x++) {
-            if (cards[x].getSuit() != cards[x+1].getSuit()) {
+            if (!cards[x].getSuit().equals(cards[x + 1].getSuit())) {
                 flush = false;
             }
         }
